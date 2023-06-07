@@ -10,8 +10,11 @@ import (
 )
 
 func (config *Config) getData() {
-	config.query = "mysql -H -B -u" + config.MYSQL.User + " -p'" + config.MYSQL.Password + "' -e '" + config.query + "'"
 	defer config.dataToJson()
+	if config.raw != nil {
+		return
+	}
+	config.query = "mysql -H -B -u" + config.MYSQL.User + " -p'" + config.MYSQL.Password + "' -e '" + config.query + "'"
 	if config.SSH.Use_ssh {
 		config.sshExec()
 		return

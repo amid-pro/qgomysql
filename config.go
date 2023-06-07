@@ -13,8 +13,6 @@ type SSHconfig struct {
 type MYSQLconfig struct {
 	User     string
 	Password string
-	Port     int
-	Address  string
 }
 
 type SERVERconfig struct {
